@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Microwave oven</title>
+    <link rel="stylesheet" href="microwave.css">
+</head>
+<body>
+<div class="container">
+    <div class="screen">
+        <span id="time">0</span>
+    </div>
+    <div class="control">
+        <form>
+            <input type="button" value="0" class="number" onclick="getNumber(this.value)"/><input type="button"
+                                                                                                  value="1"
+                                                                                                  class="number"
+                                                                                                  onclick="getNumber(this.value)"/><input
+                type="button" value="2" class="number" onclick="getNumber(this.value)"/><input type="button" value="3"
+                                                                                               class="number"
+                                                                                               onclick="getNumber(this.value)"/><input
+                type="button"
+                value="finish"
+                id="finish"/>
+            <input type="button" value="4" class="number" onclick="getNumber(this.value)"/><input type="button"
+                                                                                                  value="5"
+                                                                                                  class="number"
+                                                                                                  onclick="getNumber(this.value)"/><input
+                type="button" value="6" class="number" onclick="getNumber(this.value)"/><input type="button" value="7"
+                                                                                               class="number"
+                                                                                               onclick="getNumber(this.value)"/><input
+                type="button"
+                value="open"
+                id="open"/>
+            <input type="button" value="8" class="number" onclick="getNumber(this.value)"/><input type="button"
+                                                                                                  value="9"
+                                                                                                  class="number"
+                                                                                                  onclick="getNumber(this.value)"/><input
+                type="button" value="clear" id="clear"/><input type="button" value="stop" id="stop"/><input
+                type="button" value="close" id="close"/>
+            <input type="button" value="start" class="start"/>
+        </form>
+    </div>
+</div>
+<script src="microwave.js"></script>
+</body>
+</html>

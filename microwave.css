@@ -1,0 +1,50 @@
+
+.container {
+    width: 50%;
+    height: 700px;
+    margin: 0 auto;
+    background-color: #F7F7F7;
+}
+
+.screen {
+    width: 80%;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    border: 1px solid #F7F7F7;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+}
+
+#time {
+    font-size: 3em;
+}
+
+.control {
+    width: 100%;
+    height: 450px;
+    background-color: #D6BAA9;
+    margin-top: 50px;
+}
+
+.number,#clear,#stop,#close,#open,#finish{
+    width: 20%;
+    height: 110px;
+    border:1px solid #FAF8FB;
+    font-size: 2em;
+    background-color: #C7CBD4;
+}
+
+.number:focus,#clear:focus,#stop:focus,#close:focus,#open:focus,#finish:focus {
+    outline: none;
+}
+.start {
+    width: 100%;
+    height: 120px;
+    background-color: #DBDCE0;
+    border: none;
+    font-size: 2em;
+}
+.start:focus {
+    outline: none;
+}
