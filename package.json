@@ -1,12 +1,39 @@
 {
-  "name": "microwave-oven",
+  "name": "es6-project-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tao_Shu_Help =================",
   "main": "microwave.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node app/server.js --ignore 'node_modules/' || exit 0",
+    "lint": "eslint . -c twa-camp-2016 --no-eslintrc || exit 0",
+    "test": "jasmine || exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "imports-loader": "0.6.5"
+  },
+  "dependencies": {
+    "exports-loader": "0.6.3",
+    "expose-loader": "0.7.1",
+
+    "imports-loader": "0.6.5",
+    "jquery": "3.1.0",
+    "less-loader": "2.2.3",
+    "lodash": "4.15.0",
+    "url-loader": "0.5.7"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flashyy/tao_shu_help.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flashyy/tao_shu_help/issues"
+  },
+  "homepage": "https://github.com/flashyy/tao_shu_help#readme"
 }
+

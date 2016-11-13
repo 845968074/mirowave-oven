@@ -7,41 +7,67 @@
 </head>
 <body>
 <div class="container">
+    <div><img id="light" src="http://www.runoob.com/images/pic_bulboff.gif" width="30px"
+              height="50px"/>
+    </div>
     <div class="screen">
-        <span id="time">0</span>
+        <span id="time">00:00</span>
     </div>
     <div class="control">
         <form>
-            <input type="button" value="0" class="number" onclick="getNumber(this.value)"/><input type="button"
-                                                                                                  value="1"
-                                                                                                  class="number"
-                                                                                                  onclick="getNumber(this.value)"/><input
-                type="button" value="2" class="number" onclick="getNumber(this.value)"/><input type="button" value="3"
-                                                                                               class="number"
-                                                                                               onclick="getNumber(this.value)"/><input
-                type="button"
-                value="finish"
-                id="finish"/>
-            <input type="button" value="4" class="number" onclick="getNumber(this.value)"/><input type="button"
-                                                                                                  value="5"
-                                                                                                  class="number"
-                                                                                                  onclick="getNumber(this.value)"/><input
-                type="button" value="6" class="number" onclick="getNumber(this.value)"/><input type="button" value="7"
-                                                                                               class="number"
-                                                                                               onclick="getNumber(this.value)"/><input
-                type="button"
-                value="open"
-                id="open"/>
-            <input type="button" value="8" class="number" onclick="getNumber(this.value)"/><input type="button"
-                                                                                                  value="9"
-                                                                                                  class="number"
-                                                                                                  onclick="getNumber(this.value)"/><input
-                type="button" value="clear" id="clear"/><input type="button" value="stop" id="stop"/><input
-                type="button" value="close" id="close"/>
-            <input type="button" value="start" class="start"/>
+            <div>
+                <div class="operate">
+                    <input type="button" value="牛奶" class="number" onclick="getNumber(this.value)"/>
+                    <input type="button" value="蒸煮" class="number" onclick="getNumber(this.value)"/>
+                </div>
+                <div class="operate">
+                    <input type="button" value="解冻" class="number" onclick="getNumber(this.value)"/>
+                    <input type="button" value="消毒" class="number" onclick="getNumber(this.value)"/>
+                </div>
+                <div>
+                    <div class="operate">
+                        <input type="button" value="关门" id="close" onclick="changeDoor(this.id)"/>
+                        <input type="button" value="开门" id="open" onclick="changeDoor(this.id)"/>
+                        <input type="button" value="电源" id="source" onclick="changeSwitch()"/>
+                    </div>
+                    <div class="operate">
+                        <input type="button" value="启动" id="start" onclick="changeEvent(this.id)"/>
+                        <input type="button" value="暂停" id="stop" onclick="changeEvent(this.id)"/>
+                        <input type="button" value="恢复" id="recover" onclick="changeEvent(this.id)"/>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </div>
 <script src="microwave.js"></script>
 </body>
 </html>
+<!--
+<div class="container">
+    <div class="screen">
+        <span id="time">0</span>
+    </div>
+    <div class="control">
+        <form>
+            <input type="button" value="0" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="1" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="2" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="3" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="finish" id="finish"/>
+            <input type="button" value="4" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="5" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="6" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="7" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="open" id="open"/>
+            <input type="button" value="8" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="9" class="number" onclick="getNumber(this.value)"/>
+            <input type="button" value="clear" id="clear"/>
+            <input type="button" value="stop" id="stop"/>
+            <input type="button" value="close" id="close"/>
+            <input type="button" value="start" class="start"/>
+        </form>
+    </div>
+</div>
+<script src="microwave.js"></script>
+-->
