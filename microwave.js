@@ -1,13 +1,14 @@
+//判断是否为True
 function isTrue(id) {
-    //console.log("id: " + id);
     let hasTrue = document.getElementById(id);
-    //  console.log("hasTrue: " + hasTrue.getAttribute('is_press'));
     return hasTrue.getAttribute('is_press');
 }
+//修改is_press为true
 function changeIs_press(id) {
     let change = document.getElementById(id);
     return (change.setAttribute('is_press', 'true'));
 }
+//判断电源是否打开
 function changeSwitch() {
     let source = document.getElementById("source");
     let hasTrue = isTrue('source');
@@ -26,16 +27,17 @@ function changeSwitch() {
     }
     console.log("状态:" + source.getAttribute('is_press'));
 }
+//改变灯的状态
 function changeImage() {
     let element = document.getElementById('light');
-        if ((element.src.match("bulbon"))) {
-            element.src = "http://www.runoob.com/images/pic_bulboff.gif";
-        }
-        else {
-            element.src = "http://www.runoob.com/images/pic_bulbon.gif";
-        }
+    if ((element.src.match("bulbon"))) {
+        element.src = "http://www.runoob.com/images/pic_bulboff.gif";
+    }
+    else {
+        element.src = "http://www.runoob.com/images/pic_bulbon.gif";
+    }
 }
-
+//改变炉门
 function changeDoor(id) {
     let open = document.getElementById('open');
     let close = document.getElementById('close');
@@ -61,6 +63,7 @@ function changeDoor(id) {
         }
     }
 }
+//设置is_press初始值为false
 function setIs_press() {
     let source = document.getElementById('source');
     let open = document.getElementById('open');
@@ -80,62 +83,65 @@ function setIs_press() {
     source.setAttribute('is_press', "false");
     close.setAttribute('is_press', 'false');
 }
-let flage = false, flage1 = true;
-let type_name='';
+//let flag = false, flage1 = true;
+let type_name = ''; // 记录加热类型name
+
+
+//判断用户选择那个功能按键
 function getNumber(name) {
     if (isTrue('source') == 'true') {
-        //console.log("name: " + name);
-        let time;
+        // let time;
         switch (name) {
             case'牛奶': {
-                time = 600;
-                //flage = true;
-                //flage1=false;
-                document.getElementsByClassName('number').innerHTML=alert("亲爱的用户,你选择加热牛奶的功能!");
-                //setTime(time);
-                type_name=name;
+                // time = 600;
+                document.getElementsByClassName('number').innerHTML = alert("亲爱的用户,你选择加热牛奶的功能!");
+                type_name = name;
                 break;
             }
-            case'蒸煮':
-                time = 1800;
-                flage = true;
-                document.getElementsByClassName('number').innerHTML=alert("亲爱的用户,你选择蒸煮的功能!");
-                //setTime(time);
-                type_name=name;
+            case'蒸煮': {
+                //time = 1800;
+                //flag = true;
+                document.getElementsByClassName('number').innerHTML = alert("亲爱的用户,你选择蒸煮的功能!");
+                type_name = name;
                 break;
+
+            }
             case'解冻':
-                time = 950;
-                document.getElementsByClassName('number').innerHTML=alert("亲爱的用户,你选择解冻的功能!");
-                type_name=name;
-                //setTime(time);
+                //time = 950;
+                document.getElementsByClassName('number').innerHTML = alert("亲爱的用户,你选择解冻的功能!");
+                type_name = name;
                 break;
             case'消毒':
-                time = 320;
-                document.getElementsByClassName('number').innerHTML=alert("亲爱的用户,你选择消毒的功能!");
-                type_name=name;
-                //setTime(time);
+                //time = 320;
+                document.getElementsByClassName('number').innerHTML = alert("亲爱的用户,你选择消毒的功能!");
+                type_name = name;
                 break;
         }
     }
 }
+//var flag = 'true';
+//设计倒计时
 function setTime(time) {
     let minute, second;
-    let getTime = setInterval(function () {
+    var getTime = setInterval(function () {
         minute = parseInt(time / 60);
         second = time % 60;
+       // console.log("into flsg: "+flag);
         if (minute >= 0 && minute <= 9)
             minute = '0' + minute;
         if (second >= 0 && second <= 9)
             second = '0' + second;
         if (isTrue('source') == 'false') {
-            //  console.log("into stop");
             document.getElementById('time').innerHTML = '00:00';
             clearInterval(getTime);
         }
-        else if ((isTrue('stop') == 'true') && (isTrue('recover') == 'false'||isTrue('start')=='false')) {
+        else if ((isTrue('stop') == 'true') && (isTrue('recover') == 'false' || isTrue('start') == 'false')) {
             console.log("into erro");
             clearInterval(getTime);
         }
+       /* else if (flag == 'false') {
+            clearInterval(getTime);
+        }*/
         else {
             document.getElementById('time').innerHTML = '' + minute + ':' + second;
             time--;
@@ -146,6 +152,9 @@ function setTime(time) {
         }
     }, 1000);
 }
+
+//是否点击开始停止恢复按钮
+
 function changeEvent(id) {
 
     if (isTrue('source') == 'true') {
@@ -155,10 +164,8 @@ function changeEvent(id) {
                 console.log("changeEvent: " + id);
                 changeIs_press(id);
                 let time = document.getElementById('time').innerHTML;
-                //  console.log("time: "+time);
                 document.getElementById('time').innerHTML = time;
                 document.getElementById('recover').setAttribute('is_press', 'false');
-                //console.log(time);
                 break;
             }
             case  'recover': {
@@ -167,25 +174,32 @@ function changeEvent(id) {
                 let time = document.getElementById('time').innerHTML;
                 let [minute,secode]=time.split(':');
                 let times = parseInt(minute * 60) + parseInt(secode);
-                console.log("minute :" + minute);
-                console.log("second :" + secode);
-                console.log("times :" + times);
+                //console.log("minute :" + minute);
+                //console.log("second :" + secode);
+                //console.log("times :" + times);
                 setTime(times);
                 break;
             }
-            case 'start':
-            {
+            case 'start': {
                 changeIs_press(id);
                 let time;
-                console.log("change name: "+type_name);
+                console.log("change name: " + type_name);
+                //console.log("into flag: " + flag);
+
                 switch (type_name) {
                     case'牛奶': {
                         time = 600;
+                        //flag = 'false';
+                       // clearInterval(getTime);
+                        //flag = 'true';
                         setTime(time);
                         break;
                     }
                     case'蒸煮':
                         time = 1800;
+                        //flag = 'false';
+                        //setTime(time);
+                        //flag = 'true';
                         console.log("into 蒸煮");
                         setTime(time);
                         break;
@@ -207,8 +221,8 @@ function changeEvent(id) {
 }
 function _onclick(id) {
     setIs_press();
-    //   if(id=='source') changeSwitch();
-    /* if (source.getAttribute('is_press')===false) {
+    /*if(id=='source') changeSwitch();
+     if (source.getAttribute('is_press')===false) {
      console.log("right");
      for (let i of number) {
      i.setAttribute('is_press', 'true')
@@ -223,83 +237,3 @@ function _onclick(id) {
 }
 
 window.onload = _onclick;
-/*
- var count = [];
- function getNumber(number) {
- var node = document.getElementById('time');
- console.log("node: "+node);
- var clear = document.getElementById('clear');
- count.push(number);
- var str = count.join('');
- console.log(str);
- if (str >= 7200) {
- node.innerHTML = '危险';
- count = [];
- } else {
- node.innerHTML = parseInt(str);
- }
- var finish = document.getElementById('finish');
- finish.onclick = function () {
- node.innerHTML = 0;
- var number = document.getElementsByClassName('number');
- var clear = document.getElementById('clear');
- for (let i of number) {
- i.removeAttribute("disabled");
- }
- clear.removeAttribute('disabled');
- };
- clear.onclick = function () {
- count.pop();
- if (count.length == 0) {
- node.innerHTML = 0;
- } else {
- node.innerHTML = count.join('');
- }
- };
- }
- function _click() {
- var node = document.getElementsByClassName('start')[0];
- node.onclick = function () {
- var number = document.getElementsByClassName('number');
- var clear = document.getElementById('clear');
- for (let i of number) {
- i.setAttribute("disabled", "disabled");
- }
- clear.setAttribute('disabled', "disabled");
- node.setAttribute('disabled', 'disabled');
- setTime();
- };
- }
- function setTime() {
- var time = document.getElementById('time');
- var value = time.innerHTML;
- if (value == 0) {
- count = [];
- var number = document.getElementsByClassName('number');
- var clear = document.getElementById('clear');
- var node = document.getElementsByClassName('start')[0];
- for (let i of number) {
- i.removeAttribute('disabled');
- }
- clear.removeAttribute("disabled");
- node.removeAttribute("disabled");
- return 0;
- }
-
- else {
- value -= 1;
- time.innerHTML = value;
- var currentTime = setTimeout(function () {
- setTime();
- }, 1000)
- }
-
- var stop = document.getElementById('stop');
- stop.onclick = function () {
- var node = document.getElementsByClassName('start')[0];
- node.removeAttribute("disabled");
- clearTimeout(currentTime);
- };
- }
-
- window.onload = _click;*/
